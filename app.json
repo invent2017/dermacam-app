@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "dermacam",
-    "description": "No description",
+    "description": "diagnosis in a snap",
     "slug": "dermacam",
     "privacy": "public",
     "sdkVersion": "22.0.0",
