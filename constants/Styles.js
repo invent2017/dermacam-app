@@ -1,62 +1,81 @@
 import React from 'react';
 import { StyleSheet, Platform, Text } from 'react-native';
 
-const Main = StyleSheet.create({
+export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  statusBarUnderlay: {
+  cameraContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#eee', 
+  },
+  imageContainer: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  statusBar: {
     height: 24,
     backgroundColor: 'rgba(0,0,0,0.2)',
-  },
-});
-
-const Home = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
   },
   contentContainer: {
     paddingTop: 30,
   },
-  welcomeContainer: {
-    alignItems: 'center',
+  titleContainer: {
     marginTop: 10,
+    marginLeft: 30,
+    marginRight: 30,
+  },
+  titleText: {
+    fontFamily: 'roboto-light',
+    fontSize: 24,
+  },
+  infoContainer: {
+    marginTop: 16,
     marginBottom: 20,
+    marginLeft: 30,
+    marginRight: 30,
   },
-  welcomeImage: {
-    width: 96,
+  infoText: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  aboutText: {
+    fontSize: 16,
+    marginBottom: 6,
+  },
+  iconContainer: {
+    alignItems: 'center',    
+  },
+  companyIcon: {
     height: 100,
-    marginTop: 10,
+    width: 100,
   },
+  imagePickerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginBottom: 120,
+    marginTop: 120,
+  },
+  cameraImage: {
+    width: 240, 
+    height: 240,
+  },
+  circleIconsGroup: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+});
+
+const home = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
   },
   tabBarInfoContainer: {
     position: 'absolute',
@@ -104,5 +123,3 @@ export class MonoText extends React.Component {
     return <Text {...this.props} style={[this.props.style, { fontFamily: 'space-mono' }]} />;
   }
 }
-
-export { Main, Home };

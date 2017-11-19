@@ -4,7 +4,7 @@ import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
 import RootNavigation from './components/Navigation';
-import { Main as styles } from './constants/Styles';
+import styles from './constants/Styles';
 
 export default class App extends React.Component {
   state = {
@@ -24,7 +24,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+          {Platform.OS === 'android' && <View style={styles.statusBar} />}
           <RootNavigation />
         </View>
       );
@@ -35,10 +35,14 @@ export default class App extends React.Component {
     return Promise.all([
       Asset.loadAsync([
         require('./assets/images/icon.png'),
+        require('./assets/images/thonkang.png'),
       ]),
       Font.loadAsync([
         Ionicons.font,
-        { 'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf') },
+        {
+          'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+          'roboto-light': require('./assets/fonts/Roboto-Light.ttf'),
+        },
       ]),
     ]);
   };

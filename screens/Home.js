@@ -1,31 +1,29 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
-import { WebBrowser } from 'expo';
+import { Text, View, ScrollView } from 'react-native';
 
-import { Home as styles, MonoText } from '../constants/Styles';
+import styles from '../constants/Styles';
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
-
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={require('../assets/images/icon.png')}
-            style={styles.welcomeImage}
-          />
-        </View>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>components/Navigation.js</MonoText>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Introduction</Text>
           </View>
-        </View>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoText}>Welcome to DermaCam!</Text>
+            <Text style={styles.infoText}>This smart self-diagnosis app can identify skin diseases just with your camera!</Text>
+          </View>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Usage</Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoText}>Simply swipe to the left to begin!</Text>
+            <Text style={styles.infoText}>Use either your camera or gallery to choose a picture.</Text>
+            <Text style={styles.infoText}>Before we can identify the image, please crop it in a 1:1 ratio.</Text>
+          </View>
+        </ScrollView>
       </View>
     );
   }

@@ -6,7 +6,8 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/Home';
-import CameraScreen from '../screens/Frame';
+import CameraScreen from '../screens/Camera';
+import AboutScreen from '../screens/About';
 
 const MainTabNavigator = TabNavigator(
   {
@@ -15,7 +16,10 @@ const MainTabNavigator = TabNavigator(
     },
     Camera: {
       screen: CameraScreen,
-    }
+    },
+    About: {
+      screen: AboutScreen,
+    },
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -31,6 +35,10 @@ const MainTabNavigator = TabNavigator(
             iconName = Platform.OS === 'ios'
               ? `ios-camera${focused ? '' : '-outline'}` : 'md-camera';
             break;
+          case 'About':
+            iconName = Platform.OS === 'ios'
+              ? `ios-information-circle${focused ? '' : '-outline'}` : 'md-information-circle';
+            break;
         }
         return (
           <Ionicons
@@ -44,8 +52,8 @@ const MainTabNavigator = TabNavigator(
     }),
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: false,
-    swipeEnabled: false,
+    animationEnabled: true,
+    swipeEnabled: true,
   }
 );
 
@@ -60,6 +68,15 @@ export default StackNavigator(
       headerTitleStyle: {
         fontWeight: 'normal',
       },
+      headerLeft: <Ionicons
+        name={Platform.OS === 'ios'
+          ? 'ios-camera'
+          : 'md-camera'}
+        color={'#222'}
+        size={32}
+        style={{ padding: 20 }}
+      />,
+      title: 'DermaCam',
     }),
   }
 );
